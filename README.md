@@ -1,3 +1,21 @@
+# Tasks Done
+
+1. Fetching Vehicle type data from given API and provided dropdown to select vehicle type
+2. On select it will fetch vehicle makes data and user will be able to select from multiple select dropdown
+3. A checkbox is also available to select a specific year, if selected user will get a number input field which can be used to filter data as per specific year
+4. A search button is given to user to fetch the vehicle model, on click it will make an API call.
+5. Validation is added on Year Input field of 4 digits
+6. Search Button is disabled if
+   a. The search is active.
+   b. The user has not selected a Vehicle Type.
+   c. The user has not selected any Makes.
+   d. The user has checked Use Year but has not entered a valid Year.
+
+# Tasks which I couldn't do due to time constraint:
+
+1. UI couldn't have been better
+2. Cleaner code
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
