@@ -38,6 +38,8 @@ const CarSearch = () => {
 
   const vehcileTypeChanged = (e) => {
     const selectedType = e.target.value;
+    setVehicleMakes([]);
+    setSelectedMakes([]);
 
     getVehicleMakes(selectedType)
       .then((res) => res.json())
@@ -107,12 +109,12 @@ const CarSearch = () => {
         useYear,
         isYearValid
       ) === 1;
-    console.log("active", active);
+
     return active;
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Car Search</h2>
       <div>
         <div className="field-control">
@@ -122,7 +124,6 @@ const CarSearch = () => {
             <Select
               labelId="vehicle-type-select-label"
               id="vehicle-type-select"
-              //   value={age}
               label="Vehicle Type"
               onChange={vehcileTypeChanged}
             >
@@ -136,30 +137,12 @@ const CarSearch = () => {
         </div>
         <div className="field-control">
           <p>Make</p>
-          {/* <FormControl fullWidth>
-            <InputLabel id="vehicle-make-select-label">Make</InputLabel>
-            <Select
-              labelId="vehicle-make-select-label"
-              id="vehicle-make-select"
-              value={selectedMakes.map((make) => make.MakeName)}
-              label="Make"
-              onChange={vehicleMakeChanged}
-              multiple={true}
-              renderValue={(selected) => selected.join(", ")}
-            >
-              {vehicleMakes.map((make) => (
-                <MenuItem value={make} key={make.MakeId}>
-                  {make.MakeName}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl> */}
           <Autocomplete
             multiple
             id="tags-outlined"
             options={vehicleMakes}
             getOptionLabel={(option) => option.MakeName}
-            // defaultValue={[top100Films[13]]}
+            value={selectedMakes}
             filterSelectedOptions
             renderInput={(params) => (
               <TextField {...params} label="Makes" placeholder="Makes" />
@@ -178,7 +161,9 @@ const CarSearch = () => {
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
               />
-              {!isYearValid && <p>Please enter valid year</p>}
+              {!isYearValid && (
+                <p className="invalid-year">Please enter valid year</p>
+              )}
             </>
           )}
         </div>

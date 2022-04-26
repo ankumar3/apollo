@@ -1,3 +1,11 @@
+.container {
+  padding: 20px;
+}
+
+.field-control {
+  text-align: left;
+}
+
 .search-button {
   border: none;
   background-color: blue;
@@ -10,4 +18,8 @@
 .disabled-button {
   background-color: rgb(197, 197, 197);
   cursor: default;
+}
+
+.invalid-year {
+  color: red;
 }
